@@ -12,7 +12,7 @@ env:
     - BOO=GUBU
 
 build:
-  cache: true
+  #cache: true
 
   pre_ci_boot:
     image_name: ragesh/sample_node
