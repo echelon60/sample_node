@@ -21,6 +21,7 @@ build:
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
+    - env
     - if [ -f "/root/now.txt" ]; then cat /root/now.txt; fi
     - date > /root/now.txt
     - cat /root/now.txt
