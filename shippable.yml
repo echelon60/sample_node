@@ -4,62 +4,28 @@ language: node_js
 # Version number
 node_js:
   - 0.12
-
-env:
-  global:
-    - FOO=FUBU
-    - FO1=BUBU
-    - BOO=GUBU
+  
+integrations:
+  hub:
+    - integrationName: "kanthchandra-docker"
+      type: docker
 
 build:
-  cache: true
-
   pre_ci_boot:
-    image_name: ragesh/sample_node
-    image_tag: latest
-    pull: false
+    image_name: drydock/u14nodall
+    image_tag: prod
+    pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
-    - env
-    - if [ -f "/root/now.txt" ]; then cat /root/now.txt; fi
-    - date > /root/now.txt
-    - cat /root/now.txt
-    - shippable_cache_container
-    - sudo ls /
+    - echo "Hello, World!"
 
-deploy:
-  pre_build:
-    - ls
-    - ls -al
+  post_ci:
+    - docker build --rm -t=kanthchandra/busybox .
+    - docker push kanthchandra/busybox
 
-integrations:
-  notification:
-    - integrationName: slk-avi
-      type: slack
-      recepients:
-        - prod
-      branches:
-        only:
-          - master
-
-    - integrationName: slk-avi
-      type: slack
-      recepients:
-        - beta
-      branches:
-        only:
-          - test
-
-  hub:
-    - integrationName: "Ragesh - Docker"
-      type: docker
-      branches:
-        only:
-          - master
-  deploy:
-    - integrationName: aws-avi
-      type: aws
-      branches:
-        only:
-          - master
+  on_failure:
+    - echo "The job failed!!!!!"
+    
+  on_success:
+    - echo "The job succeeded!!!!"
