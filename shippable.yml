@@ -21,6 +21,7 @@ build:
     - echo "Hello, World!"
     - env
     - echo $PATH
+    - reports --help
 
   post_ci:
     - docker build --rm -t=ric03uec/sample_python .
