@@ -26,6 +26,8 @@ build:
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
     - npm install
+    - ./node_modules/.bin/istanbul cover grunt -- -u tdd
+    - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
     - grunt
 
   post_ci:
