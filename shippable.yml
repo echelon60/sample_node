@@ -25,6 +25,7 @@ build:
     - node --version
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
+    - npm install
     - grunt
 
   post_ci:
