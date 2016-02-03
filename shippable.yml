@@ -19,7 +19,8 @@ build:
 
   ci:
     - echo "Hello, World!"
-    - sleep 60
+    - env
+    - echo $PATH
 
   post_ci:
     - docker build --rm -t=ric03uec/sample_python .
