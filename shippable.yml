@@ -22,6 +22,10 @@ build:
     - env
     - echo $PATH
     - reports --help
+    - node --version
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+    - grunt
 
   post_ci:
     - docker build --rm -t=ric03uec/sample_python .
