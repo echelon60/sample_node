@@ -7,7 +7,7 @@ node_js:
   
 integrations:
   hub:
-    - integrationName: "kanthchandra-docker"
+    - integrationName: "ric03uec-hub"
       type: docker
 
 build:
