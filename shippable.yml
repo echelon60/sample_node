@@ -21,8 +21,8 @@ build:
     - echo "Hello, World!"
 
   post_ci:
-    - docker build --rm -t=kanthchandra/busybox .
-    - docker push kanthchandra/busybox
+    - docker build --rm -t=ric03uec/sample_python .
+    - docker push ric03uec/sample_python
 
   on_failure:
     - echo "The job failed!!!!!"
