@@ -7,7 +7,7 @@ node_js:
   
 integrations:
   hub:
-    - integrationName: "ric03uec-hub"
+    - integrationName: "dockerhub-ric03uec"
       type: docker
 
 build:
