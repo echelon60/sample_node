@@ -27,10 +27,6 @@ build:
     - export XUNIT_FILE=shippable/testresults/result.xml
     - grunt
 
-  post_ci:
-    - docker build --rm -t=ric03uec/sample_python .
-    - docker push ric03uec/sample_python
-
   on_failure:
     - echo "The job failed!!!!!"
     
