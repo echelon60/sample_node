@@ -34,7 +34,7 @@ deploy:
     - ls -al
     
 integrations:
-  hub:
+  notification:
     - integrationName: "irc-pranay"
       type: irc
       channel: space_builds
