@@ -37,4 +37,4 @@ integrations:
   notification:
     - integrationName: "irc-pranay"
       type: irc
-      channel: space_builds
+      channel: "chat.freenode.net#space_builds"
