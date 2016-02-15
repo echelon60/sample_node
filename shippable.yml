@@ -27,6 +27,7 @@ build:
     - cat /root/now.txt
     - shippable_cache_container
     - sudo ls /
+    - sleep 2m
 
 deploy:
   pre_build:
