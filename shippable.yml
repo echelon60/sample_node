@@ -32,3 +32,9 @@ deploy:
   pre_build:
     - ls
     - ls -al
+    
+integrations:
+  hub:
+    - integrationName: "irc-pranay"
+      type: irc
+      channel: space_builds
