@@ -38,3 +38,15 @@ integrations:
     - integrationName: "irc-pranay"
       type: irc
       channel: "chat.freenode.net#space_builds"
+      
+integrations:
+  notifications:
+    - integrationName: irc
+      type: irc
+      recipients: 
+        - "chat.freenode.net#space_builds"
+
+      on_start: always
+      on_pull_request: always
+      on_success: always
+      on_failure: always
