@@ -4,43 +4,28 @@ language: node_js
 # Version number
 node_js:
   - 0.12
-
 env:
-  global:
-    - FOO=FUBU
-    - FO1=BUBU
-    - BOO=GUBU
+ - M1=one
+ - M2=two
+ - M3=three
+  
+  
 
 build:
-  cache: true
-
   pre_ci_boot:
-    image_name: ragesh/sample_node
+    image_name: shippabledocker/sample_node
     image_tag: latest
-    pull: false
+    pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
-    - env
-    - if [ -f "/root/now.txt" ]; then cat /root/now.txt; fi
-    - date > /root/now.txt
-    - cat /root/now.txt
-    - shippable_cache_container
-    - sudo ls /
+    - echo "Hello, World!"
+    - echo $M1 and $M2 and $M3
 
-deploy:
-  pre_build:
-    - ls
-    - ls -al
+  pre_ci:
+    - echo "this is master branch with preci"
 
-integrations:
-  notifications:
-    - integrationName: irc
-      type: irc
-      recipients: 
-        - "chat.freenode.net#space_builds"
-
-      on_start: always
-      on_pull_request: always
-      on_success: always
-      on_failure: always
+  post_ci:
+    - ls -a
+    - pwd
+    - sleep 2m
