@@ -3,17 +3,18 @@ language: node_js
 
 # Version number
 node_js:
+  - 0.10
   - 0.12
+  - 4.23
+  
 env:
  - M1=one
  - M2=two
  - M3=three
   
-  
-
 build:
   pre_ci_boot:
-    image_name: shippabledocker/sample_node
+    image_name: drydock/u14nod:prod
     image_tag: latest
     pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
