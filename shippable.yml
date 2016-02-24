@@ -15,7 +15,7 @@ build:
   cache: true
 
   pre_ci_boot:
-    image_name: ragesh/sample_node
+    image_name: drydock/u14nod:prod
     image_tag: latest
     pull: false
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
